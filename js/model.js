@@ -1,6 +1,6 @@
 class WorkoutModel {
     constructor() {
-        this.workouts = JSON.parse(localStorage.getItem("workouts")) || [];
+        this.workouts = []; // Przechowywanie w pamięci
     }
 
     addWorkout(type, intensity, duration, date) {
@@ -23,7 +23,6 @@ class WorkoutModel {
             date: parsedDate.toISOString()
         };
         this.workouts.push(workout);
-        this.save();
         return workout;
     }
 
@@ -44,13 +43,11 @@ class WorkoutModel {
         workout.intensity = intensity;
         workout.duration = parsedDuration;
         workout.date = parsedDate.toISOString();
-        this.save();
         return workout;
     }
 
     removeWorkout(id) {
         this.workouts = this.workouts.filter(w => w.id !== id);
-        this.save();
     }
 
     getWorkouts() {
@@ -80,9 +77,6 @@ class WorkoutModel {
         });
         return stats;
     }
-
-    save() {
-        localStorage.setItem("workouts", JSON.stringify(this.workouts));
-    }
 }
+
 module.exports = { WorkoutModel };

@@ -1,0 +1,13 @@
+<%- include('layout') %>
+
+h2>Statystyki</h2>
+<div class="stats">
+    <p>Treningi w tym tygodniu: <%= weekStats %></p>
+    <p>Treningi w tym miesiącu: <%= monthStats %></p>
+    <h3>Treningi według typu:</h3>
+    <ul>
+        <% for (let [type, count] of Object.entries(typeStats)) { %>
+            <li><%= type %>: <%= count %></li>
+        <% } %>
+    </ul>
+</div>

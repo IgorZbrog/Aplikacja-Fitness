@@ -16,8 +16,8 @@ describe("WorkoutModel", () => {
     });
 
     test("should throw error for invalid duration", () => {
-    expect(() => model.addWorkout("cardio", "niska", "0", "2025-05-26")).toThrow("Czas trwania musi być liczbą między 1 a 300 minut!");
-});
+        expect(() => model.addWorkout("cardio", "niska", "0", "2025-05-26")).toThrow("Czas trwania musi być liczbą między 1 a 300 minut!");
+    });
 
     test("should edit a workout", () => {
         const workout = model.addWorkout("cardio", "niska", 30, "2025-05-26");

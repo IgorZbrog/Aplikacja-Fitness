@@ -1,0 +1,42 @@
+<%- include('layout') %>
+
+<h2>Twoje treningi</h2>
+<% if (error) { %>
+    <div class="error"><%= error %></div>
+<% } %>
+<form id="workout-form" action="/workouts" method="POST">
+    <label for="type">Typ:</label>
+    <select id="type" name="type" required>
+        <option value="cardio">Cardio</option>
+        <option value="siłowy">Siłowy</option>
+        <option value="joga">Joga</option>
+    </select>
+    <label for="intensity">Intensywność:</label>
+    <select id="intensity" name="intensity" required>
+        <option value="niska">Niska</option>
+        <option value="średnia">Średnia</option>
+        <option value="wysoka">Wysoka</option>
+    </select>
+    <label for="duration">Czas (min):</label>
+    <input type="number" id="duration" name="duration" min="1" max="300" required />
+    <label for="date">Data:</label>
+    <input type="date" id="date" name="date" required />
+    <button type="submit" id="submit-btn">Dodaj</button>
+</form>
+<ul id="workout-list">
+    <% workouts.forEach(workout => { %>
+        <li id="<%= workout.id %>">
+            <%= workout.type %> | <%= workout.intensity %> | <%= workout.duration %> min | <%= new Date(workout.date).toLocaleDateString() %>
+            <form action="/workouts/edit/<%= workout.id %>" method="POST" style="display:inline;">
+                <input type="hidden" name="type" value="<%= workout.type %>">
+                <input type="hidden" name="intensity" value="<%= workout.intensity %>">
+                <input type="hidden" name="duration" value="<%= workout.duration %>">
+                <input type="hidden" name="date" value="<%= new Date(workout.date).toISOString().split('T')[0] %>">
+                <button type="submit" class="edit-btn">Edytuj</button>
+            </form>
+            <form action="/workouts/delete/<%= workout.id %>" method="POST" style="display:inline;">
+                <button type="submit" class="delete-btn">Usuń</button>
+            </form>
+        </li>
+    <% }) %>
+</ul>
