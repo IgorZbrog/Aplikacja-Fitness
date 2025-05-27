@@ -32,4 +32,4 @@ Aplikacja w JavaScript oparta na wzorcu MVC do zarządzania treningami fitness.
 - `git push origin main`
 
 ## Autor
-[Twoje Imię]
+Igor Zbróg 50009
