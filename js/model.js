@@ -85,3 +85,4 @@ class WorkoutModel {
         localStorage.setItem("workouts", JSON.stringify(this.workouts));
     }
 }
+module.exports = { WorkoutModel };
