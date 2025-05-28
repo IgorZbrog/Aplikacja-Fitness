@@ -32,7 +32,7 @@ app.post('/workouts/delete/:id', (req, res) => controller.handleRemove(req, res)
 app.get('/stats', (req, res) => controller.renderStats(req, res));
 app.get('/planner', (req, res) => controller.renderPlanner(req, res));
 
-// Uruchomienie serwera
+
 app.listen(port, () => {
     console.log(`Serwer działa na http://localhost:${port}`);
 });
