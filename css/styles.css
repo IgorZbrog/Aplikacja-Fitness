@@ -1,118 +1,90 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
 body {
+    font-family: Arial, sans-serif;
+    max-width: 1000px;
+    margin: 0 auto;
     padding: 20px;
-    background-color: #f4f4f4;
+    background-color: #edebeb;
 }
-
 nav ul {
     list-style: none;
+    padding: 0;
     display: flex;
-    gap: 15px;
-    margin-bottom: 20px;
+    gap: 20px;
+    background-color: #b7ce04;
+    padding: 10px;
+    border-radius: 5px;
 }
-
 nav a {
     text-decoration: none;
     color: #333;
-    padding: 5px 10px;
-    background-color: #ddd;
-    border-radius: 5px;
+    font-weight: bold;
 }
-
 nav a:hover {
-    background-color: #bbb;
+    color: #28a745;
 }
-
-h1, h2, h3 {
-    margin-bottom: 15px;
+#app {
+    margin-top: 20px;
 }
-
 form {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
-    max-width: 400px;
     margin-bottom: 20px;
 }
-
-input, select, button {
-    padding: 5px;
+select, input, button {
+    padding: 8px;
     font-size: 16px;
 }
-
 button {
-    background-color: #4CAF50;
+    cursor: pointer;
+    background-color: #28a745;
     color: white;
     border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 5px;
+    border-radius: 4px;
 }
-
 button:hover {
-    background-color: #45a049;
+    background-color: #218838;
 }
-
-.edit-btn, .delete-btn {
-    background-color: #2196F3;
-    margin-left: 5px;
-    padding: 5px 10px;
-}
-
-.delete-btn {
-    background-color: #f44336;
-}
-
-.edit-btn:hover {
-    background-color: #1e88e5;
-}
-
-.delete-btn:hover {
-    background-color: #d32f2f;
-}
-
-ul#workout-list {
+ul {
     list-style: none;
-    max-width: 600px;
+    padding: 0;
 }
-
-ul#workout-list li {
-    background-color: white;
+li {
     padding: 10px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-
+li button {
+    background-color: #dc3545;
+    margin-left: 5px;
+}
 .error {
     color: red;
     margin-bottom: 10px;
 }
-
 .stats, .planner {
-    background-color: white;
-    padding: 15px;
+    padding: 20px;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-
 .calendar {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 5px;
-    margin-top: 10px;
+    text-align: center;
 }
-
 .calendar div {
     padding: 10px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-    min-height: 80px;
+    border: 1px solid #ddd;
 }
-
+@media (max-width: 600px) {
+    form {
+        grid-template-columns: 1fr;
+    }
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
