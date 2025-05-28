@@ -1,6 +1,6 @@
 class WorkoutModel {
     constructor() {
-        this.workouts = []; // Przechowywanie w pamięci
+        this.workouts = [];
     }
 
     addWorkout(type, intensity, duration, date) {
