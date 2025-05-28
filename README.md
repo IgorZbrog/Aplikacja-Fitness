@@ -1,35 +1,33 @@
 # System Organizacji Treningów Fitness
 
-Aplikacja w JavaScript oparta na wzorcu MVC do zarządzania treningami fitness.
+Aplikacja internetowa do zarządzania treningami fitness, zbudowana w oparciu o wzorzec MVC z Server-Side Rendering.
 
 ## Funkcjonalności
-- Dodawanie, edytowanie, usuwanie treningów (typ, intensywność, czas trwania, data).
-- Statystyki: tygodniowe, miesięczne, według typu.
-- Podstrony: Strona główna, Treningi, Statystyki, Planowanie (kalendarz).
-- Trwałość danych w localStorage.
-- Walidacja danych i obsługa błędów.
+- Dodawanie, edycja i usuwanie treningów.
+- Statystyki treningów (tygodniowe, miesięczne, według typu).
+- Planowanie treningów w kalendarzu.
+- Walidacja danych (np. czas trwania 1–300 minut).
+- Prosty, wyśrodkowany design.
 
-## Struktura
-- `index.html`: Główny plik HTML.
+## Struktura projektu
+- `server.js`: Serwer Express z trasami.
+- `js/model.js`: Model danych (WorkoutModel, dane w pamięci).
+- `js/controller.js`: Kontroler renderujący widoki.
+- `js/app.js`: Logika klienta (formularz edycyjny).
+- `views/*.ejs`: Szablony EJS (home, workouts, stats, planner).
 - `css/styles.css`: Stylizacja.
-- `js/`:
-  - `app.js`: Inicjalizacja.
-  - `model.js`: Zarządzanie danymi.
-  - `view.js`: Renderowanie podstron.
-  - `controller.js`: Logika aplikacji.
-  - `router.js`: Nawigacja.
 - `tests/model.test.js`: Testy jednostkowe.
 
+## Biblioteki
+- express: Serwer HTTP
+- ejs: Silnik szablonów SSR
+- jest: Testy jednostkowe
+
 ## Uruchomienie
-1. Sklonuj repozytorium: `git clone https://github.com/TwojaNazwa/Aplikacja-Fitness.git`
-2. Otwórz `index.html` w przeglądarce lub użyj Live Server.
-3. (Opcjonalnie) Zainstaluj zależności: `npm install`
-4. Uruchom testy: `npm test`
+1. Sklonuj repozytorium.
+2. Zainstaluj zależności: `npm install`.
+3. Uruchom serwer: `npm start`.
+4. Otwórz `http://localhost:3000`.
 
-## Synchronizacja z GitHubem
-- `git add .`
-- `git commit -m "Opis zmian"`
-- `git push origin main`
-
-## Autor
-Igor Zbróg 50009
+## Testy (dodane opcjonalnie w ramach sprawdzenia działanosci różnych opcji w aplikacji)
+- Uruchom testy: `npm test`.
